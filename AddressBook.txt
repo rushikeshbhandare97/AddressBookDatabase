@@ -1,0 +1,64 @@
+#UC1
+Welcome to AddressBookServiceDB
+
+1.  show databases;				#show database before create
+
+2. create database addressbookserviceDB;	#create database addressbookserviceDB
+
+3. mysql> show databases;			#show database after creating
+
+4. use addressbookserviceDB;		       #use particular database
+
+5. select database();			       #view particular database
+
+
+#UC2
+mysql> create table addressbook
+    -> (
+    -> id   INT unsigned NOT NULL AUTO_INCREMENT,
+    -> first_name       VARCHAR(30) NOT NULL,
+    -> last_name        VARCHAR(30) NOT NULL,
+    -> address          VARCHAR(130) NOT NULL,
+    -> city             VARCHAR(30) NOT NULL,
+    -> state            VARCHAR(30) NOT NULL,
+    -> zip              INT(6) NOT NULL,
+    ->  phone_number     BIGINT NOT NULL,
+    -> email            VARCHAR(50) NOT NULL,
+    -> PRIMARY KEY(id)
+    -> );
+mysql> describe addressbook;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int unsigned | NO   | PRI | NULL    | auto_increment |
+| first_name   | varchar(30)  | NO   |     | NULL    |                |
+| last_name    | varchar(30)  | NO   |     | NULL    |                |
+| address      | varchar(130) | NO   |     | NULL    |                |
+| city         | varchar(30)  | NO   |     | NULL    |                |
+| state        | varchar(30)  | NO   |     | NULL    |                |
+| zip          | int          | NO   |     | NULL    |                |
+| phone_number | bigint       | NO   |     | NULL    |                |
+| email        | varchar(50)  | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+9 rows in set (0.15 sec)
+
+#UC3
+mysql> insert into addressbook (first_name, last_name, address, city, state, zip, phone_number, email)values
+    -> ('Rushikesh','Bhandare','TrmutriNagar','karad','Maharashtra','415110','7743928819','rushi123@gmail.com'),
+    -> ('Ajay','Sharma','Vijaynagar','Jaipur','Rajasthan','411234','7620043069','ajay345@gmail.com');
+Query OK, 2 rows affected (0.22 sec)
+mysql> select * from addressbook;
++----+------------+-----------+--------------+--------+-------------+--------+--------------+--------------------+
+| id | first_name | last_name | address      | city   | state       | zip    | phone_number | email              |
++----+------------+-----------+--------------+--------+-------------+--------+--------------+--------------------+
+|  1 | Rushikesh  | Bhandare  | KarveNaka    | karad  | Maharashtra | 415110 |   7743928819 | rushi@123gmail.com |
+|  2 | Ajay       | Sharma    | Ramnagar     |        | Rajasthan   | 412115 |   7620043069 | ajay456@gmail.com  |
+|  3 | Ajay       | Sharma    | Ramnagar     |        | Rajasthan   | 412115 |   7620043069 | ajay456@gmail.com  |
+|  4 | Rushikesh  | Bhandare  | KarveNaka    | karad  | Maharashtra | 415110 |   7743928819 | rushi@123gmail.com |
+|  5 | Ajay       | Sharma    | Ramnagar     |        | Rajasthan   | 412115 |   7620043069 | ajay456@gmail.com  |
+|  6 | Rushikesh  | Bhandare  | KarveNaka    | karad  | Maharashtra | 415110 |   7743928819 | rushi@123gmail.com |
+|  7 | Ajay       | Sharma    | Ramnagar     | Jaipur | Rajasthan   | 412115 |   7620043069 | ajay456@gmail.com  |
+|  8 | Rushikesh  | Bhandare  | TrmutriNagar | karad  | Maharashtra | 415110 |   7743928819 | rushi123@gmail.com |
+|  9 | Ajay       | Sharma    | Vijaynagar   | Jaipur | Rajasthan   | 411234 |   7620043069 | ajay345@gmail.com  |
++----+------------+-----------+--------------+--------+-------------+--------+--------------+--------------------+
+9 rows in set (0.00 sec)
